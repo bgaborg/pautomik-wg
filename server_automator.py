@@ -30,7 +30,7 @@ logger.addHandler(sh)
 
 
 def update_duckdns():
-    logger.info(f"Running duckdns update")
+    logger.info(f"Running duckdns update for domain: {ductdns_domain}")
     command = ['bash', '-c', f'echo url="https://www.duckdns.org/update?domains={ductdns_domain}&token={duckdns_token}&ip=" | curl -k -K -']
     output = subprocess.check_output(command, universal_newlines=True)
     logger.info(f"Output: {output}")
