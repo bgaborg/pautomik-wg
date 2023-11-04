@@ -4,8 +4,12 @@ import logging
 import logging.handlers
 import re
 import sys
+import os
 
 
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 config = configparser.ConfigParser()
 config.read('settings.ini')
 if not 'domain' in config['duckdns']:
