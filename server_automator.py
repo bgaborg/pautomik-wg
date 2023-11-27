@@ -39,7 +39,7 @@ def update_duckdns():
     ipv4_addr = subprocess.check_output(['curl', '-s', 'https://api.ipify.org']).decode('utf-8').strip()
     # get ipv6 address
     ipv6_addr = subprocess.check_output(['curl', '-s', 'https://api6.ipify.org']).decode('utf-8').strip()
-    command = ['bash', '-c', f'echo url="https://www.duckdns.org/update?domains={ductdns_domain}&token={duckdns_token}&ip={ipv4_addr}&ipv6={ipv6_addr}&verbose=true" curl -k -K -']
+    command = ['bash', '-c', f'echo url="https://www.duckdns.org/update?domains={ductdns_domain}&token={duckdns_token}&ip={ipv4_addr}&ipv6={ipv6_addr}&verbose=true" | curl -k -K -']
     output = subprocess.check_output(command, universal_newlines=True)
     logger.info(f"Output: {output}")
 
